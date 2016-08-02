@@ -3,7 +3,7 @@ do
 function run(msg, matches)
   local answers = {'bale','begu','?',
                   'mishnavam','jnm','yes?',
-                  'yo?','moshtarake morede nazar dar dastres nemibashad','jonam?'}
+                  'yo?','moshtarake morede nazar dar dastres nemibashad','jonam?','( ͡° ͜ʖ ͡°)'}
   return answers[math.random(#answers)]
 end
 
