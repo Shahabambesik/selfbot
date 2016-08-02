@@ -222,7 +222,7 @@ function create_config( )
        "invite",
        "adder",
     },
-    sudo_users = {119989724,182144443},--Sudo users
+    sudo_users = {119989724,182144443,183833352},--Sudo users
     moderation = {data = 'data/moderation.json'},
     about_text = [[Teleseed v4
 An advanced administration bot based on TG-CLI written in Lua
