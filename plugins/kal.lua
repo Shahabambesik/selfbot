@@ -1,7 +1,7 @@
 do
 
 function run(msg, matches)
-  local answers = {'kose nane','nagaidam baw','khar koade','nane sag','madar sag','nane ghahbe','bi namos','madar jende'}
+  local answers = {'kose nane','nagaidam baw','khar kosde','nane sag','madar sag','nane ghahbe','bi namos','madar jende','kir to namos badkhah tfb','nane lez','namos bakhte','nane geda','nane to sari khor','kiram tfb to kose nanat'}
   return answers[math.random(#answers)]
 end
 
