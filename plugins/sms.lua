@@ -1,6 +1,6 @@
 local function run(msg, matches)
-	if not is_sudo(msg) then
-		return "این پلاگین فقط مربوط به سودو است"
+	if not is_admin1(msg) then
+		return "این پلاگین فقط مربوط به ادمین ها است"
 	end
 	if matches[2]:lower() == "inbox" then
 		local dat = http.request("http://umbrella.shayan-soft.ir/sms/check.php?act=GetNewMessagesList&action=GetNewMessagesListResult")
@@ -17,8 +17,8 @@ local function run(msg, matches)
 		local dat = http.request("http://umbrella.shayan-soft.ir/sms/credit.php")
 		return "اعتبار پنل پیامک "..dat.." ریال میباشد"
 	else
-		local path = "http://onlinepanel.ir/post/sendsms.ashx?from=50001333343536&to="
-		local url = path..matches[2].."&text="..URL.escape(matches[3]).."&password=11001100&username=9193033515"
+		local path = "http://onlinepanel.ir/post/sendsms.ashx?from=50009666563800&to="
+		local url = path..matches[2].."&text="..URL.escape(matches[3]).."&password=3963136&username=9167307785"
 		local res = http.request(url)
 		if res == "1-0" then
 			return 'پيام با موفقيت ارسال شد'
@@ -39,19 +39,15 @@ local function run(msg, matches)
 end
 
 return {
-	description = "Send SMS from +98 5000 13 33 34 35 36", 
-	usagehtm = '<tr><td align="center">sms متن شماره</td><td align="right">با استفاده از این پلاگین میتوانید طریق سامانه پیامکی، پیامک ارسال کنید. پیامکهای ارسالی از شماره ی 50001333343536 میباشند</td></tr>'
-	..'<tr><td align="center">sms credit</td><td align="right">سنجش اعتبار ریالی سامانه</td></tr>'
-	..'<tr><td align="center">sms inbox</td><td align="right">صندوق ورودی پیامک های سامانه</td></tr>',
 	usage = {
-		"sms (number) (txt) : ارسال پيامک",
+		"/sms (number) (txt) : ارسال پيامک",
 		"sms (credit) : اعتبار",
 		"sms (inbox) : صندوق ورودی",
 	},
 	patterns = {
-		"^[!/#]([Ss]ms) (inbox)$",
-		"^[!/#]([Ss]ms) (credit)$",
-		"^[!/#]([Ss]ms) (%d+) (.*)",
+		"^[/#!]([Ss]ms) (inbox)$",
+		"^[/#!]([Ss]ms) (credit)$",
+		"^[/#!]([Ss]ms) (%d+) (.*)",
 	}, 
 	run = run,
 }
